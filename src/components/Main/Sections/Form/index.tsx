@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
+import { fetcher } from '@services/fetchers';
 import { ContainerS } from './styles';
 import VectorLight from '../../../../assets/svg/vector-light.svg';
 
@@ -15,12 +16,42 @@ export const Form = () => {
     tel: '',
     privacyPolicies: false,
   });
+
+  function submit() {
+    if (!formData.privacyPolicies)
+      return alert(
+        'Para prosseguir com o envio você deve aceitar nossos termos de Políticas de Privacidade',
+      );
+    const dataCvCRM = {
+      name: formData.name,
+      email: formData.email,
+      telefone: formData.tel,
+    };
+    return fetcher
+      .post('https://rve.cvcrm.com.br/api/cvio/lead', dataCvCRM)
+      .then(() =>
+        alert(
+          'Recebemos seu formulário.\n\n Entraremos em contato com você em breve',
+        ),
+      )
+      .catch(() =>
+        alert(
+          'Ops... Houve um erro ao enviar seu formulário.\n\n Por favor tente novamente mais tarde.',
+        ),
+      );
+  }
+
   return (
     <ContainerS className="mx-w" id="form">
       <div className="vector">
         <Image src={VectorLight} alt="" aria-hidden />
       </div>
-      <form onSubmit={(ev) => ev.preventDefault()}>
+      <form
+        onSubmit={(ev) => {
+          ev.preventDefault();
+          submit();
+        }}
+      >
         <Input
           type="text"
           placeholder="Nome"

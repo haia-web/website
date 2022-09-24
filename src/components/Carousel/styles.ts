@@ -2,9 +2,10 @@ import styled, { css } from 'styled-components';
 
 interface ContainerSProps {
   animation?: 'zoom';
+  hasThumb: boolean;
 }
 
-const BreakpointsS = css`
+const BreakpointsArrowsS = css`
   @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
     .embla__button--prev {
       left: -10px;
@@ -23,6 +24,39 @@ const BreakpointsS = css`
     .embla__button--next {
       top: 70%;
       right: -10px;
+    }
+  }
+`;
+const BreakpointsThumbS = css`
+  @media (max-width: 1040px) {
+    .embla__slide--thumb {
+      min-width: 20%;
+    }
+  }
+
+  @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    .embla__button--prev {
+      left: 10px;
+    }
+
+    .embla__button--next {
+      right: 10px;
+    }
+  }
+
+  @media (max-width: 568px) {
+    .embla__slide--thumb {
+      min-width: 25%;
+    }
+  }
+  @media (max-width: 436px) {
+    .embla__slide--thumb {
+      min-width: 35%;
+    }
+  }
+  @media (max-width: 329px) {
+    .embla__slide--thumb {
+      min-width: 45%;
     }
   }
 `;
@@ -88,8 +122,9 @@ export const ContainerS = styled.section<ContainerSProps>`
   }
 
   .embla__slide--thumb {
+    margin-top: 2rem;
     padding-left: 8px;
-    min-width: 20%;
+    min-width: 10%;
   }
 
   .embla__slide__inner--thumb {
@@ -111,13 +146,12 @@ export const ContainerS = styled.section<ContainerSProps>`
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -10000%;
-    right: -10000%;
+    left: -100%;
+    right: -100%;
     margin: auto;
     min-width: 1000%;
     min-height: 1000%;
     max-width: none;
-    transform: scale(0.1);
     transition: opacity 0.2s;
   }
   .embla__button {
@@ -149,15 +183,16 @@ export const ContainerS = styled.section<ContainerSProps>`
   }
 
   .embla__button--prev {
-    left: -47px;
+    left: -27px;
   }
 
   .embla__button--next {
     right: -27px;
   }
 
-  .embla__slide--thumb.is-selected .embla__slide__thumbnail {
-    border: 2px slid rgb(var(--color-dark));
+  .embla__slide--thumb.is-selected > button img {
+    border: 4px solid rgb(var(--color-dark)) !important;
+    object-fit: cover;
   }
 
   ${({ animation }) =>
@@ -176,5 +211,5 @@ export const ContainerS = styled.section<ContainerSProps>`
       }
     `}
 
-  ${BreakpointsS}
+  ${({ hasThumb }) => (!hasThumb ? BreakpointsArrowsS : BreakpointsThumbS)}
 `;

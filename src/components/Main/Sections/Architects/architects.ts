@@ -1,7 +1,7 @@
 export const architects = [
   {
     id: 1,
-    img: '/imgs/bia.png',
+    img: '/imgs/peoples/bia.png',
     name: 'BIA HAJNAL',
     title: ['INTERIORES DAS', 'UNIDADES DECORADAS'],
     message:
@@ -10,7 +10,7 @@ export const architects = [
   },
   {
     id: 2,
-    img: '/imgs/marcia.png',
+    img: '/imgs/peoples/marcia.png',
     name: 'MÁRCIA LEITÃO',
     title: ['INTERIORES', 'DAS ÁREAS COMUNS'],
     message:
@@ -19,7 +19,7 @@ export const architects = [
   },
   {
     id: 3,
-    img: '/imgs/ricardo.png',
+    img: '/imgs/peoples/ricardo.png',
     name: 'RICARDO BANDEIRA',
     title: ['PROJETO', 'ARQUITETÔNICO'],
     message:
@@ -28,7 +28,7 @@ export const architects = [
   },
   {
     id: 4,
-    img: '/imgs/sergio.png',
+    img: '/imgs/peoples/sergio.png',
     name: 'SÉRGIO SANTANA',
     title: ['PROJETO', 'PAISAGÍSTICO'],
     message:

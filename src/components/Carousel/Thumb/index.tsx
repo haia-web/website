@@ -21,8 +21,8 @@ export const Thumb = ({ selected, onClick, imgSrc }: ThumbProps) => (
         src={imgSrc}
         className="embla__slide__thumbnail"
         alt="A cool cat."
-        width={220}
-        height={200}
+        width={120}
+        height={70}
       />
     </button>
   </div>

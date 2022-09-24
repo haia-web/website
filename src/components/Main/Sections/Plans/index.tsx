@@ -33,7 +33,7 @@ export const Plans = () => {
                 </span>
               </div>
               <Image
-                src={`/imgs/plan-${size.size}.webp`}
+                src={`/imgs/plans/plan-${size.size}.webp`}
                 alt={`planta ${size.size}m²`}
                 width={750}
                 height={450}

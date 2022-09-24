@@ -5,26 +5,18 @@ import { ContainerS } from './styles';
 import { Thumb } from './Thumb';
 
 interface CarouselProps {
-  loop?: boolean;
-  slides?: { src: string; alt: string; id: string }[];
+  slides?: { src: string; alt: string; id: string | number }[];
   children: React.ReactNode;
   animation?: 'zoom';
 }
 
-export const Carousel = ({
-  slides,
-  loop,
-  children,
-  animation,
-}: CarouselProps) => {
+export const Carousel = ({ slides, children, animation }: CarouselProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
   const slidesRef = useRef<HTMLDivElement>(null);
   const [mainViewportRef, embla] = useEmblaCarousel();
   const [thumbViewportRef, emblaThumbs] = useEmblaCarousel({
-    loop,
-    dragFree: true,
     containScroll: 'keepSnaps',
   });
 
@@ -72,7 +64,7 @@ export const Carousel = ({
   }, []);
 
   return (
-    <ContainerS animation={animation}>
+    <ContainerS hasThumb={!!slides} animation={animation}>
       <div className="embla">
         <div className="embla__viewport" ref={mainViewportRef}>
           <div className="embla__container" ref={slidesRef}>

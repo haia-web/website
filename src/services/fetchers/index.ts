@@ -10,7 +10,13 @@ export const fetcher = {
     return instanceAxios.get<T>(url, options).then((res) => res.data);
   },
   post: async (url: string, data: any) => {
-    return instanceAxios.post(url, data).then((res) => res.data);
+    return instanceAxios
+      .post(url, data, {
+        headers: {
+          token: process.env.NEXT_PUBLIC_CV_TOKEN!,
+        },
+      })
+      .then((res) => res.data);
   },
   put: async (url: string, data: any) => {
     return instanceAxios.put(url, data).then((res) => res.data);
