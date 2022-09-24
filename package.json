@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fancyapps/ui": "^4.0.31",
     "axios": "^0.27.2",
+    "embla-carousel-react": "^7.0.3",
     "next": "12.3.0",
     "nookies": "^2.5.2",
     "react": "18.2.0",

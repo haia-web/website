@@ -1,19 +1,29 @@
+import { useRouter } from 'next/router';
 import { ButtonS } from './styles';
 
-interface ButtonProps extends React.FC {
-  children?: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  variant?: 'big' | 'small' | 'default';
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  variant?: 'dark' | 'light';
 }
 
-export const Button = ({ variant, children, onClick }: ButtonProps) => {
+export const Button = ({
+  variant,
+  children,
+  onClick,
+  ...rest
+}: ButtonProps) => {
+  const router = useRouter();
+
   return (
-    <ButtonS onClick={onClick}>
-      {children || (
-        <span>
-          I&apos;m a {variant === 'default' ? 'good' : variant || 'good'} button
-        </span>
-      )}
+    <ButtonS
+      variant={variant || 'light'}
+      onClick={(ev) => {
+        if (onClick) onClick(ev);
+        if (rest.type === 'button') router.push('#form');
+      }}
+      {...rest}
+    >
+      {children}
     </ButtonS>
   );
 };
