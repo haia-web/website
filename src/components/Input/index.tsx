@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { phoneMask } from './masks';
 import { ContainerS } from './styles';
 
@@ -24,6 +24,9 @@ export const Input = ({
   max,
 }: InputProps) => {
   const [value, setValue] = useState(valueProp);
+  useEffect(() => {
+    if (valueProp === '' || !valueProp) setValue('');
+  }, [valueProp]);
 
   return (
     <ContainerS type={type}>
@@ -32,7 +35,7 @@ export const Input = ({
         min={min}
         max={max}
         type={type}
-        value={valueProp === '' ? valueProp : value}
+        value={value}
         checked={checked}
         required={required}
         placeholder={placeholder}

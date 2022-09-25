@@ -4,12 +4,14 @@ import { ButtonS } from './styles';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: 'dark' | 'light';
+  push?: boolean;
 }
 
 export const Button = ({
   variant,
   children,
   onClick,
+  push,
   ...rest
 }: ButtonProps) => {
   const router = useRouter();
@@ -19,7 +21,7 @@ export const Button = ({
       variant={variant || 'light'}
       onClick={(ev) => {
         if (onClick) onClick(ev);
-        if (rest.type === 'button') router.push('#form');
+        if (push) router.push('#form');
       }}
       {...rest}
     >

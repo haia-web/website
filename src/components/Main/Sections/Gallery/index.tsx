@@ -49,7 +49,7 @@ export const Gallery = () => {
           })}
         </Carousel>
       </Dialog>
-      <Button type="button" variant="dark">
+      <Button push type="button" variant="dark">
         Saiba Mais
       </Button>
     </ContainerS>

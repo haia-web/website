@@ -26,7 +26,9 @@ export const About = () => {
             empreendimento.
           </p>
         </div>
-        <Button type="button">Fale com nossos especialista</Button>
+        <Button type="button" push>
+          Fale com nossos especialista
+        </Button>
       </div>
     </ContainerS>
   );

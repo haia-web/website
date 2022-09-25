@@ -17,7 +17,7 @@ export const LeisureAbout2 = () => {
         convidados.
       </p>
 
-      <Button type="button" variant="dark">
+      <Button push type="button" variant="dark">
         Descubra mais detalhes
       </Button>
     </ContainerS>
