@@ -6,6 +6,9 @@ interface InputProps {
   type: 'text' | 'tel' | 'email' | 'checkbox';
   placeholder?: string;
   onChange: (target: EventTarget & HTMLInputElement) => void;
+  required?: boolean;
+  value?: string;
+  checked?: boolean;
   min?: number;
   max?: number;
 }
@@ -13,11 +16,14 @@ interface InputProps {
 export const Input = ({
   placeholder,
   type,
+  required,
+  value: valueProp,
+  checked,
   onChange,
   min,
   max,
 }: InputProps) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(valueProp);
 
   return (
     <ContainerS type={type}>
@@ -26,9 +32,11 @@ export const Input = ({
         min={min}
         max={max}
         type={type}
-        value={value}
+        value={valueProp === '' ? valueProp : value}
+        checked={checked}
+        required={required}
         placeholder={placeholder}
-        className={value.length ? 'focus' : ''}
+        className={value?.length ? 'focus' : ''}
         onChange={({ target }) => {
           setValue(type === 'tel' ? phoneMask(target.value) : target.value);
           if (onChange) onChange(target);

@@ -23,17 +23,24 @@ export const Form = () => {
         'Para prosseguir com o envio você deve aceitar nossos termos de Políticas de Privacidade',
       );
     const dataCvCRM = {
-      name: formData.name,
+      nome: formData.name,
       email: formData.email,
       telefone: formData.tel,
     };
     return fetcher
       .post('https://rve.cvcrm.com.br/api/cvio/lead', dataCvCRM)
-      .then(() =>
+      .then((res) => {
         alert(
           'Recebemos seu formulário.\n\n Entraremos em contato com você em breve',
-        ),
-      )
+        );
+        setFormData({
+          name: '',
+          email: '',
+          tel: '',
+          privacyPolicies: true,
+        });
+        return res;
+      })
       .catch(() =>
         alert(
           'Ops... Houve um erro ao enviar seu formulário.\n\n Por favor tente novamente mais tarde.',
@@ -55,22 +62,28 @@ export const Form = () => {
         <Input
           type="text"
           placeholder="Nome"
+          required
+          value={formData.name}
           onChange={({ value }) =>
             setFormData((data) => ({ ...data, name: value }))
           }
         />
         <Input
           type="tel"
+          required
           placeholder="Telefone"
           min={14}
           max={15}
+          value={formData.tel}
           onChange={({ value }) =>
             setFormData((data) => ({ ...data, tel: value }))
           }
         />
         <Input
           type="email"
+          required
           placeholder="E-Mail"
+          value={formData.email}
           onChange={({ value }) =>
             setFormData((data) => ({ ...data, email: value }))
           }
@@ -78,7 +91,9 @@ export const Form = () => {
 
         <div className="terms">
           <Input
+            required
             type="checkbox"
+            checked={formData.privacyPolicies}
             onChange={({ checked }) =>
               setFormData((data) => ({ ...data, privacyPolicies: checked }))
             }

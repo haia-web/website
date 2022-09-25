@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { Button } from '@components/Button';
 import { Carousel } from '@components/Carousel';
 import { CarouselItem } from '@components/Carousel/CarouselItem';
@@ -14,6 +15,7 @@ export const Gallery = () => {
   return (
     <ContainerS className="mx-w">
       <h2>ONDE VIVER É MAIS QUE EXISTIR</h2>
+      <span className="info">Imagens meramente ilustrativas</span>
       <Dialog>
         <Carousel
           slides={gallery.map((image) => ({
@@ -22,22 +24,29 @@ export const Gallery = () => {
             alt: image.label,
           }))}
         >
-          {gallery.map((image) => (
-            <CarouselItem key={image.id}>
-              <div className="gallery">
-                <Image
-                  src={getImageURL(image.id)}
-                  data-fancybox="gallery"
-                  data-src={getImageURL(image.id)}
-                  data-caption={image.label}
-                  alt={image.label}
-                  width={1000}
-                  height={520}
-                  layout="fill"
-                />
-              </div>
-            </CarouselItem>
-          ))}
+          {gallery.map((image) => {
+            const labelHtml = image.label
+              .replace(/\*{2}(?:\s|$)/, '</strong> ')
+              .replace('**', '<strong>');
+
+            return (
+              <CarouselItem key={image.id}>
+                <div className="gallery">
+                  <div className="mark">
+                    <span dangerouslySetInnerHTML={{ __html: labelHtml }} />
+                  </div>
+                  <Image
+                    src={getImageURL(image.id)}
+                    data-fancybox="gallery"
+                    data-src={getImageURL(image.id)}
+                    data-caption={image.label.replace('**', '')}
+                    alt={image.label.replace('**', '')}
+                    layout="fill"
+                  />
+                </div>
+              </CarouselItem>
+            );
+          })}
         </Carousel>
       </Dialog>
       <Button type="button" variant="dark">
