@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface ContainerSProps {
-  variant: 'bigger' | 'normal';
+  variant: 'bigger' | 'normal' | 'invert';
 }
 
 const BreakpointsS = css`
@@ -20,5 +20,10 @@ export const ContainerS = styled.div<ContainerSProps>`
       position: relative;
       width: 40%;
       ${BreakpointsS}
+    `}
+  ${({ color }) =>
+    color === 'invert' &&
+    css`
+      filter: invert(1);
     `}
 `;
