@@ -61,6 +61,10 @@ const Document = () => {
           name="description"
           content="Haia boa vista. Onde viver é mais que existir."
         />
+        <meta
+          name="facebook-domain-verification"
+          content="ojtlkkiw6afpnrza825mmskj95v25w"
+        />
       </Head>
       <body>
         <Main />
