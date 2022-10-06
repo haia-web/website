@@ -26,6 +26,13 @@ export const Form = () => {
       nome: formData.name,
       email: formData.email,
       telefone: formData.tel,
+      origem: 'Google',
+      empreendimentos: [
+        {
+          id: 1,
+          nome: 'Haia - Boa vista',
+        },
+      ],
     };
     return fetcher
       .post('https://rve.cvcrm.com.br/api/cvio/lead', dataCvCRM)
