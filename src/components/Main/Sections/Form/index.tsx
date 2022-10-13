@@ -26,8 +26,10 @@ export const Form = () => {
       nome: formData.name,
       email: formData.email,
       telefone: formData.tel,
-      origem: 'Google LP',
       idempreendimento: 16,
+      origem: 'SI',
+      midia: 'Site',
+      conversao: 'CoreAg',
     };
     return fetcher
       .post('https://rve.cvcrm.com.br/api/cvio/lead', dataCvCRM)
