@@ -28,7 +28,7 @@ export const Form = () => {
       telefone: formData.tel,
       idempreendimento: 4,
       origem: 'SI',
-      midia: 'Site',
+      midia: 'Google LP',
       conversao: 'CoreAg',
     };
     return fetcher
