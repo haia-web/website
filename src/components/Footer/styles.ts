@@ -27,7 +27,7 @@ export const ContainerS = styled.footer`
     align-items: center;
 
     > div {
-      height: 6rem;
+      height: 10rem;
       width: 100%;
       display: flex;
       flex-direction: column;

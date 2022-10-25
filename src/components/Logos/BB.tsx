@@ -5,8 +5,8 @@ import BBImage from '../../assets/svg/bb-logo.svg';
 
 export const BBLogo = () => {
   return (
-    <ContainerS variant="normal">
-      <Image src={BBImage} alt="Banco do Brasil" />
+    <ContainerS variant="bigger" style={{ width: '100%' }}>
+      <Image src={BBImage} alt="Banco do Brasil" width={120} height={120} />
     </ContainerS>
   );
 };
