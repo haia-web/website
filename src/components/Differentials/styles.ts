@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 5rem;
   display: flex;
   flex-direction: column;
+  max-width: 1360px;
+  margin: 0 auto;
+  margin-top: 5rem;
 
   ul {
     width: 100%;
