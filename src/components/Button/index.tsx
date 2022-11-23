@@ -3,7 +3,7 @@ import { ButtonS } from './styles';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'dark' | 'light';
+  variant?: 'dark' | 'light' | 'light-invert';
   push?: boolean;
 }
 

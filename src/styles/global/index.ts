@@ -81,6 +81,12 @@ const RootS = createGlobalStyle`
     list-style: none;
   }
 
+  p.legend {
+    text-align: left;
+    margin-top: 4rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
   .mx-w {
     padding: 0 var(--margin);
   }

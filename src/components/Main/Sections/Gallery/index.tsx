@@ -3,7 +3,9 @@ import { Button } from '@components/Button';
 import { Carousel } from '@components/Carousel';
 import { CarouselItem } from '@components/Carousel/CarouselItem';
 import { Dialog } from '@components/Dialog';
+import Differentials from '@components/Differentials';
 import Image from 'next/image';
+import { differentials } from './differentials';
 import { gallery } from './gallery';
 import { ContainerS } from './styles';
 
@@ -52,6 +54,19 @@ export const Gallery = () => {
       <Button push type="button" variant="dark">
         Saiba Mais
       </Button>
+
+      <Differentials
+        title="diferenciais do empreendimento"
+        differentials={differentials}
+      />
+      <p className="legend">
+        * Gerador de energia para elevadores, portaria, iluminação parcial do
+        térreo e garagens, bombas e portões
+        <br /> ** Um ponto por apartamento. Cabeamento e equipamento não
+        inclusos.
+        <br /> *** Equipamentos de CFTV somente na área perimetral e portaria.
+        <br /> **** Conforme memorial descritivo
+      </p>
     </ContainerS>
   );
 };

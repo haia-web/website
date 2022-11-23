@@ -26,68 +26,75 @@ const BreakpointsS = css`
 `;
 
 export const ContainerS = styled.section`
-  position: relative;
   background-color: rgb(var(--color-dark));
   color: rgb(var(--color-primary));
+  > div {
+    position: relative;
 
-  h3 {
-    font-family: var(--font-secondary);
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.125em;
-  }
-  h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: normal;
-  }
-  .vector {
-    position: absolute;
-    top: 2rem;
-    left: -5rem;
-  }
-  .carousel-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    .size-container {
+    h3 {
+      font-family: var(--font-secondary);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.125em;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: normal;
+    }
+    .vector {
+      position: absolute;
+      top: 0;
+      left: -5rem;
+    }
+    .carousel-item {
       display: flex;
-      flex-direction: column;
-      > .size {
-        font-size: 700%;
-        font-family: var(--font-serif);
-      }
-      > .about {
-        h3 {
-          margin: 0.5rem 0;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      .size-container {
+        display: flex;
+        flex-direction: column;
+        > .size {
+          font-size: 700%;
+          font-family: var(--font-serif);
+        }
+        > .about {
+          h3 {
+            margin: 0.5rem 0;
+          }
         }
       }
     }
-  }
 
-  .card {
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    background-color: rgb(var(--color-primary));
-    .card-icon {
-      padding: 1rem;
-      background-color: rgb(var(--color-primary));
-      height: 100%;
+    .card {
       display: flex;
       align-items: center;
+      width: fit-content;
+      background-color: rgb(var(--color-primary));
+      .card-icon {
+        padding: 1rem;
+        background-color: rgb(var(--color-primary));
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .card-body {
+        padding: 1rem;
+        color: rgb(var(--color-dark));
+        background-color: rgb(var(--color-light));
+        height: 100%;
+        max-width: 22rem;
+      }
     }
-    .card-body {
-      padding: 1rem;
-      color: rgb(var(--color-dark));
-      background-color: rgb(var(--color-light));
-      height: 100%;
-      max-width: 22rem;
-    }
+  }
+
+  .title {
+    color: rgb(var(--color-primary)) !important;
+    border-color: rgb(var(--color-primary)) !important;
   }
 
   ${BreakpointsS}

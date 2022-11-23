@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ContainerS } from './styles';
 
 import KarvasGRM from '../../assets/svg/karvas-grm.svg';
@@ -11,11 +10,7 @@ interface KarvasGRMLogoProps {
 export const KarvasGRMLogo = ({ variant, color }: KarvasGRMLogoProps) => {
   return (
     <ContainerS variant={variant || 'normal'} color={color}>
-      <Image
-        src={KarvasGRM}
-        alt="Haia - Boa Vista"
-        layout={variant === 'bigger' ? 'responsive' : undefined}
-      />
+      <KarvasGRM aria-label="Haia - Boa Vista" />
     </ContainerS>
   );
 };

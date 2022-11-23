@@ -1,5 +1,4 @@
 import { Button } from '@components/Button';
-import Image from 'next/image';
 import { useState } from 'react';
 
 import VectorLight from '../../../../assets/svg/vector-light.svg';
@@ -27,7 +26,7 @@ export const VirtualTour = () => {
         <div className="title">
           <div>
             <div className="vector">
-              <Image src={VectorLight} alt="" aria-hidden />
+              <VectorLight />
             </div>
             <h2>Tour Virtual</h2>
           </div>

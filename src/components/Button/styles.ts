@@ -1,17 +1,24 @@
 import styled from 'styled-components';
 
 interface ButtonSProps {
-  variant: 'dark' | 'light';
+  variant: 'dark' | 'light' | 'light-invert';
 }
 
 export const ButtonS = styled.button<ButtonSProps>`
   cursor: pointer;
   border: none;
-  color: rgb(var(--color-primary));
+  color: ${({ variant }) =>
+    variant === 'light-invert'
+      ? 'rgb(var(--color-light))'
+      : 'rgb(var(--color-primary))'};
   font-family: var(--font-primary);
   text-transform: uppercase;
   background-color: ${({ variant }) =>
-    variant === 'dark' ? 'rgb(var(--color-dark))' : 'rgb(var(--color-light))'};
+    variant === 'dark'
+      ? 'rgb(var(--color-dark))'
+      : variant === 'light-invert'
+      ? 'rgb(var(--color-primary))'
+      : 'rgb(var(--color-light))'};
 
   font-size: 1.125rem;
   font-weight: 700;

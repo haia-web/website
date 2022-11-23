@@ -4,6 +4,12 @@ const BreakpointsS = css`
   @media (max-width: 1300px) {
     width: 100%;
   }
+  @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
+    .promotion {
+      width: calc(100% + 4rem);
+      transform: translateX(-2rem);
+    }
+  }
   @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.mobile}) {
     > .sizes {
       flex-direction: column;
@@ -15,6 +21,30 @@ const BreakpointsS = css`
     }
     .size-container .size {
       font-size: 600% !important;
+    }
+    .promotion {
+      width: calc(100% + 2rem);
+      transform: translateX(-1rem);
+      text-align: center;
+
+      > a div.vector {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 664px) {
+    .promotion {
+      padding: 1rem 0;
+      > a div.content {
+        height: auto;
+        justify-content: center;
+        margin-left: 1rem;
+        flex-direction: column;
+
+        button {
+          width: 100%;
+        }
+      }
     }
   }
 `;
@@ -76,6 +106,41 @@ export const ContainerS = styled.section`
       }
       ::after {
         top: var(--gap);
+      }
+    }
+  }
+
+  .promotion {
+    width: calc(100% + var(--margin) * 2);
+    transform: translateX(calc(var(--margin) * -1));
+    height: fit-content;
+    margin-top: 4rem;
+    background-color: rgb(var(--color-dark));
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      > div.content {
+        width: 100%;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: end;
+        gap: 2rem;
+        margin-right: 2rem;
+        font-weight: bold;
+        color: rgb(var(--color-light));
+        font-size: 1.5rem;
+        height: 84px;
+        > div {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+      }
+      > div.vector {
+        display: flex;
+        height: fit-content;
       }
     }
   }

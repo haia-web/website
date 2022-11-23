@@ -4,22 +4,13 @@ interface ContainerSProps {
   variant: 'bigger' | 'normal' | 'invert';
 }
 
-const BreakpointsS = css`
-  @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.tablet}) {
-    width: 80%;
-  }
-  @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.mobile}) {
-    width: 100%;
-  }
-`;
-
 export const ContainerS = styled.div<ContainerSProps>`
   ${({ variant }) =>
     variant === 'bigger' &&
     css`
       position: relative;
-      width: 40%;
-      ${BreakpointsS}
+      width: 80%;
+      transform: scale(1.4);
     `}
   ${({ color }) =>
     color === 'invert' &&

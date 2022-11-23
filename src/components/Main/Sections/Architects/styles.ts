@@ -44,11 +44,19 @@ export const ContainerS = styled.section`
     left: 0;
 
     max-width: 80px;
+    svg {
+      width: 100%;
+    }
+  }
+  > section.architects,
+  > h2 {
+    margin-left: 1rem;
   }
   > section.architects {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     > div {
       display: flex;
       flex-direction: column;

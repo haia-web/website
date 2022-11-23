@@ -11,7 +11,7 @@ export const Architects = () => {
   return (
     <ContainerS className="mx-w2">
       <div className="vector">
-        <Image src={VectorComplex} alt="" aria-hidden />
+        <VectorComplex />
       </div>
       <h2>
         Projeto assinado <br /> por <strong>Grandes Referências</strong>
@@ -42,11 +42,11 @@ export const Architects = () => {
                 data-src={architect.url}
                 variant="dark"
               >
-                <Image
-                  src={PlaySvg}
-                  alt="play - ícone vetorizado"
-                  width={50}
-                  height={50}
+                <PlaySvg
+                  aria-label="play - ícone vetorizado"
+                  style={{
+                    width: '35%',
+                  }}
                 />
                 <span>Clique aqui e assista o vídeo</span>
               </Button>

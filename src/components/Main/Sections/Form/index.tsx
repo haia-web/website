@@ -1,6 +1,5 @@
 import type { iFormData } from 'types/iFormData';
 import { useState } from 'react';
-import Image from 'next/image';
 
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
@@ -55,7 +54,7 @@ export const Form = () => {
   return (
     <ContainerS className="mx-w" id="form">
       <div className="vector">
-        <Image src={VectorLight} alt="" aria-hidden />
+        <VectorLight />
       </div>
       <form
         onSubmit={(ev) => {

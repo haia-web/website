@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const BreakpointsS = css`
-  @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.mobile}) {
+  @media (max-width: 1054px) {
     .top {
       flex-direction: column;
       max-width: 400px;
@@ -44,9 +44,6 @@ export const ContainerS = styled.footer`
         display: flex;
         align-items: center;
         justify-content: center;
-        > div {
-          width: 100%;
-        }
       }
     }
   }
