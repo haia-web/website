@@ -30,8 +30,8 @@ export const Infos = () => {
         ))}
       </section>
       <section className="promotion">
-        <Link href="/regulamento-cliente-fidelidade-nov-22.pdf">
-          <a href="replace">
+        <Link href="/regulamento-cliente-fidelidade-nov-22.pdf" target="_blank">
+          <a href="/regulamento-cliente-fidelidade-nov-22.pdf" target="_blank">
             <div className="content">
               <div>
                 <HandIcon style={{ width: '72px' }} />
